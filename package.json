@@ -5,7 +5,8 @@
   "main": "server/index",
   "scripts": {
     "start": "nodemon --watch server server/index & webpack --watch",
-    "eslint": "eslint src"
+    "eslint": "eslint src",
+    "knex": "knex"
   },
   "keywords": [
     "react",
@@ -43,6 +44,8 @@
   "dependencies": {
     "body-parser": "^1.17.2",
     "express": "^4.15.3",
+    "knex": "^0.13.0",
+    "sqlite3": "^3.1.8",
     "superagent": "^2.2.0"
   }
 }

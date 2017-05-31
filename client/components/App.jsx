@@ -1,12 +1,10 @@
 import React from 'react'
 
-import LoadSubreddit from './LoadSubreddit'
-import SubredditContainer from '../containers/SubredditContainer'
+import  Emotions from './Emotions'
 
 const App = () => (
   <div className='app-container'>
-    <LoadSubreddit />
-    <SubredditContainer />
+    <Emotions/>
   </div>
 )
 

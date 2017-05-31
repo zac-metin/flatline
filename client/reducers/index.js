@@ -1,8 +1,7 @@
 import {combineReducers} from 'redux'
 
-import subreddits from './subreddits'
+import Emotions from './Emotions'
 
 export default combineReducers({
-  subreddits
+  Emotions
 })
-

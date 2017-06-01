@@ -1,7 +1,7 @@
 import {combineReducers} from 'redux'
 
-import Emotions from './Emotions'
+import emotions from './emotions'
 
 export default combineReducers({
-  Emotions
+  emotions
 })

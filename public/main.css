@@ -1,0 +1,9 @@
+/*Remove default styling from all links*/
+a:link {
+  text-decoration: none;
+  color:black;
+}
+
+a:visited {
+  color: black;
+}

@@ -1,6 +1,7 @@
 import React from 'react'
 import {connect} from 'react-redux'
-const getEmotions = require('../api/emotions').getEmotions
+
+import {getEmotions} from '../api/emotions'
 
 class LoadEmotions extends React.Component {
   constructor(props) {

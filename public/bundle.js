@@ -11651,9 +11651,9 @@ var _react = __webpack_require__(17);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _Emotions = __webpack_require__(102);
+var _EmotionList = __webpack_require__(238);
 
-var _Emotions2 = _interopRequireDefault(_Emotions);
+var _EmotionList2 = _interopRequireDefault(_EmotionList);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -11661,7 +11661,7 @@ var App = function App() {
   return _react2.default.createElement(
     'div',
     { className: 'app-container' },
-    _react2.default.createElement(_Emotions2.default, null)
+    _react2.default.createElement(_EmotionList2.default, null)
   );
 };
 
@@ -11793,90 +11793,7 @@ module.exports = {
 };
 
 /***/ }),
-/* 102 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _react = __webpack_require__(17);
-
-var _react2 = _interopRequireDefault(_react);
-
-var _reactRedux = __webpack_require__(33);
-
-var _emotions = __webpack_require__(100);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-var Emotions = function (_React$Component) {
-  _inherits(Emotions, _React$Component);
-
-  function Emotions() {
-    var _ref;
-
-    var _temp, _this, _ret;
-
-    _classCallCheck(this, Emotions);
-
-    for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
-      args[_key] = arguments[_key];
-    }
-
-    return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = Emotions.__proto__ || Object.getPrototypeOf(Emotions)).call.apply(_ref, [this].concat(args))), _this), _this.renderEmotion = function (emotion) {
-      return _react2.default.createElement(
-        'h1',
-        null,
-        emotion.emotion
-      );
-    }, _temp), _possibleConstructorReturn(_this, _ret);
-  }
-
-  _createClass(Emotions, [{
-    key: 'componentDidMount',
-    value: function componentDidMount() {
-      this.props.dispatch((0, _emotions.fetchEmotions)());
-    }
-  }, {
-    key: 'render',
-    value: function render() {
-      return _react2.default.createElement(
-        'div',
-        null,
-        this.props.emotions.map(this.renderEmotion),
-        _react2.default.createElement(
-          'button',
-          null,
-          'Show Situations'
-        )
-      );
-    }
-  }]);
-
-  return Emotions;
-}(_react2.default.Component);
-
-function mapStateToProps(state) {
-  return {
-    emotions: state.emotions
-  };
-}
-
-exports.default = (0, _reactRedux.connect)(mapStateToProps)(Emotions);
-
-/***/ }),
+/* 102 */,
 /* 103 */,
 /* 104 */
 /***/ (function(module, exports, __webpack_require__) {
@@ -26070,6 +25987,125 @@ module.exports = function(module) {
 	return module;
 };
 
+
+/***/ }),
+/* 238 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(17);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _reactRedux = __webpack_require__(33);
+
+var _emotions = __webpack_require__(100);
+
+var _EmotionItem = __webpack_require__(239);
+
+var _EmotionItem2 = _interopRequireDefault(_EmotionItem);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var EmotionList = function (_React$Component) {
+  _inherits(EmotionList, _React$Component);
+
+  function EmotionList() {
+    var _ref;
+
+    var _temp, _this, _ret;
+
+    _classCallCheck(this, EmotionList);
+
+    for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+
+    return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = EmotionList.__proto__ || Object.getPrototypeOf(EmotionList)).call.apply(_ref, [this].concat(args))), _this), _this.renderEmotion = function (emotion) {
+      return _react2.default.createElement(
+        'h1',
+        null,
+        emotion.emotion
+      );
+    }, _temp), _possibleConstructorReturn(_this, _ret);
+  }
+
+  _createClass(EmotionList, [{
+    key: 'componentDidMount',
+    value: function componentDidMount() {
+      this.props.dispatch((0, _emotions.fetchEmotions)());
+    }
+  }, {
+    key: 'render',
+    value: function render() {
+      return _react2.default.createElement(
+        'div',
+        null,
+        this.props.emotions.map(function (item) {
+          return _react2.default.createElement(_EmotionItem2.default, { key: item.emotion_id, emotion: item.emotion });
+        }),
+        _react2.default.createElement(
+          'button',
+          null,
+          'Show Situations'
+        )
+      );
+    }
+  }]);
+
+  return EmotionList;
+}(_react2.default.Component);
+
+function mapStateToProps(state) {
+  return {
+    emotions: state.emotions
+  };
+}
+
+exports.default = (0, _reactRedux.connect)(mapStateToProps)(EmotionList);
+
+/***/ }),
+/* 239 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _react = __webpack_require__(17);
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var EmotionItem = function EmotionItem(_ref) {
+  var emotion = _ref.emotion;
+
+  return _react2.default.createElement(
+    'div',
+    null,
+    emotion
+  );
+};
+
+exports.default = EmotionItem;
 
 /***/ })
 /******/ ]);

@@ -1,8 +1,10 @@
 import React from 'react'
 import {connect} from 'react-redux'
-import {fetchEmotions} from '../actions/emotions'
 
-class Emotions extends React.Component {
+import {fetchEmotions} from '../actions/emotions'
+import EmotionItem from './EmotionItem'
+
+class EmotionList extends React.Component {
 
   componentDidMount() {
     this.props.dispatch(fetchEmotions())
@@ -13,7 +15,7 @@ class Emotions extends React.Component {
   render() {
     return (
       <div>
-        {this.props.emotions.map(this.renderEmotion)}
+        {this.props.emotions.map((item)=><EmotionItem key={item.emotion_id} emotion={item.emotion}/>)}
         <button>Show Situations</button>
       </div>
     )
@@ -26,4 +28,4 @@ function mapStateToProps(state) {
   }
 }
 
-export default connect(mapStateToProps)(Emotions)
+export default connect(mapStateToProps)(EmotionList)

@@ -1,10 +1,10 @@
 import React from 'react'
 
-import  Emotions from './Emotions'
+import EmotionList from './EmotionList'
 
 const App = () => (
   <div className='app-container'>
-    <Emotions/>
+    <EmotionList/>
   </div>
 )
 

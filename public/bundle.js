@@ -11887,7 +11887,12 @@ var RenderEmotions = function RenderEmotions(props) {
   return _react2.default.createElement(
     'div',
     null,
-    props.emotions.map(renderEmotion)
+    props.emotions.map(renderEmotion),
+    _react2.default.createElement(
+      'button',
+      null,
+      'Show Situations'
+    )
   );
 };
 

@@ -6,6 +6,7 @@ const renderEmotion = (emotion) => <h1>{emotion.emotion}</h1>
 const RenderEmotions = (props) => (
   <div>
     {props.emotions.map(renderEmotion)}
+    <button>Show Situations</button>
   </div>
 )
 

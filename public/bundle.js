@@ -11730,10 +11730,190 @@ thunk.withExtraArgument = createThunkMiddleware;
 exports['default'] = thunk;
 
 /***/ }),
+<<<<<<< HEAD
 /* 100 */,
 /* 101 */,
 /* 102 */,
 /* 103 */,
+=======
+/* 100 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.receiveEmotions = receiveEmotions;
+
+var _superagent = __webpack_require__(94);
+
+var _superagent2 = _interopRequireDefault(_superagent);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function receiveEmotions(emotions) {
+  return {
+    type: 'RECEIVE_EMOTIONS',
+    emotions: emotions
+  };
+}
+
+/***/ }),
+/* 101 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var _superagent = __webpack_require__(94);
+
+var _superagent2 = _interopRequireDefault(_superagent);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var receiveEmotions = __webpack_require__(100).receiveEmotions;
+
+var getEmotions = function getEmotions() {
+  console.log("starting api request");
+  return function (dispatch) {
+    _superagent2.default.get('/api/emotions').end(function (err, res) {
+      console.log({ err: err });
+      console.log(res.body);
+      dispatch(receiveEmotions(res.body));
+    });
+  };
+};
+
+module.exports = {
+  getEmotions: getEmotions
+};
+
+/***/ }),
+/* 102 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(17);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _reactRedux = __webpack_require__(33);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var getEmotions = __webpack_require__(101).getEmotions;
+
+var LoadEmotions = function (_React$Component) {
+  _inherits(LoadEmotions, _React$Component);
+
+  function LoadEmotions(props) {
+    _classCallCheck(this, LoadEmotions);
+
+    var _this = _possibleConstructorReturn(this, (LoadEmotions.__proto__ || Object.getPrototypeOf(LoadEmotions)).call(this, props));
+
+    _this.state = {
+      dispatch: props.dispatch
+    };
+    return _this;
+  }
+
+  _createClass(LoadEmotions, [{
+    key: 'componentDidMount',
+    value: function componentDidMount() {
+      this.state.dispatch(getEmotions());
+    }
+  }, {
+    key: 'render',
+    value: function render() {
+      return _react2.default.createElement('div', null);
+    }
+  }]);
+
+  return LoadEmotions;
+}(_react2.default.Component);
+
+// let Emotions = ({dispatch}) => (
+//   <button onClick={() => }>SADNESS</button>
+// )
+
+
+LoadEmotions = (0, _reactRedux.connect)()(LoadEmotions);
+
+exports.default = LoadEmotions;
+
+/***/ }),
+/* 103 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _react = __webpack_require__(17);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _reactRedux = __webpack_require__(33);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var renderEmotion = function renderEmotion(emotion) {
+  return _react2.default.createElement(
+    'button',
+    {
+      onClick: function onClick() {
+        return situation();
+      } },
+    emotion.emotion
+  );
+};
+
+var RenderEmotions = function RenderEmotions(props) {
+  return _react2.default.createElement(
+    'div',
+    null,
+    props.emotions.map(renderEmotion)
+  );
+};
+
+function mapStateToProps(state) {
+  return {
+    emotions: state.emotions
+  };
+}
+
+function situation() {
+  console.log('potatoes');
+  return _react2.default.createElement(
+    'h1',
+    null,
+    '"Situation here"'
+  );
+}
+
+exports.default = (0, _reactRedux.connect)(mapStateToProps)(RenderEmotions);
+
+/***/ }),
+>>>>>>> 08a19bb405a697b5af3974b2cac7318a33fd0e68
 /* 104 */
 /***/ (function(module, exports, __webpack_require__) {
 

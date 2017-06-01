@@ -16,7 +16,6 @@ class EmotionList extends React.Component {
     return (
       <div>
         {this.props.emotions.map((item)=><EmotionItem key={item.emotion_id} emotion={item.emotion}/>)}
-        <button>Show Situations</button>
       </div>
     )
   }

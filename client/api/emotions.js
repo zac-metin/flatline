@@ -1,5 +1,6 @@
 import request from 'superagent'
-let receiveEmotions = require('../actions/receiveEmotions').receiveEmotions
+
+import {receiveEmotions} from '../actions/emotions'
 
 const getEmotions = () => {
   console.log("starting api request");

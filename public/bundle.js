@@ -11655,18 +11655,13 @@ var _Emotions = __webpack_require__(102);
 
 var _Emotions2 = _interopRequireDefault(_Emotions);
 
-var _RenderEmotions = __webpack_require__(103);
-
-var _RenderEmotions2 = _interopRequireDefault(_RenderEmotions);
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var App = function App() {
   return _react2.default.createElement(
     'div',
     { className: 'app-container' },
-    _react2.default.createElement(_Emotions2.default, null),
-    _react2.default.createElement(_RenderEmotions2.default, null)
+    _react2.default.createElement(_Emotions2.default, null)
   );
 };
 
@@ -11745,18 +11740,26 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.receiveEmotions = receiveEmotions;
+exports.fetchEmotions = fetchEmotions;
 
 var _superagent = __webpack_require__(94);
 
 var _superagent2 = _interopRequireDefault(_superagent);
 
+var _emotions = __webpack_require__(101);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function receiveEmotions(emotions) {
+  (0, _emotions.getEmotions)();
   return {
     type: 'RECEIVE_EMOTIONS',
     emotions: emotions
   };
+}
+
+function fetchEmotions() {
+  return (0, _emotions.getEmotions)();
 }
 
 /***/ }),
@@ -11770,9 +11773,9 @@ var _superagent = __webpack_require__(94);
 
 var _superagent2 = _interopRequireDefault(_superagent);
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+var _emotions = __webpack_require__(100);
 
-var receiveEmotions = __webpack_require__(100).receiveEmotions;
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var getEmotions = function getEmotions() {
   console.log("starting api request");
@@ -11780,7 +11783,7 @@ var getEmotions = function getEmotions() {
     _superagent2.default.get('/api/emotions').end(function (err, res) {
       console.log({ err: err });
       console.log(res.body);
-      dispatch(receiveEmotions(res.body));
+      dispatch((0, _emotions.receiveEmotions)(res.body));
     });
   };
 };
@@ -11808,7 +11811,7 @@ var _react2 = _interopRequireDefault(_react);
 
 var _reactRedux = __webpack_require__(33);
 
-var _emotions = __webpack_require__(101);
+var _emotions = __webpack_require__(100);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -11822,74 +11825,48 @@ var Emotions = function (_React$Component) {
   _inherits(Emotions, _React$Component);
 
   function Emotions() {
+    var _ref;
+
+    var _temp, _this, _ret;
+
     _classCallCheck(this, Emotions);
 
-    return _possibleConstructorReturn(this, (Emotions.__proto__ || Object.getPrototypeOf(Emotions)).apply(this, arguments));
+    for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+
+    return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = Emotions.__proto__ || Object.getPrototypeOf(Emotions)).call.apply(_ref, [this].concat(args))), _this), _this.renderEmotion = function (emotion) {
+      return _react2.default.createElement(
+        'h1',
+        null,
+        emotion.emotion
+      );
+    }, _temp), _possibleConstructorReturn(_this, _ret);
   }
 
   _createClass(Emotions, [{
     key: 'componentDidMount',
     value: function componentDidMount() {
-      this.props.dispatch((0, _emotions.getEmotions)());
+      this.props.dispatch((0, _emotions.fetchEmotions)());
     }
   }, {
     key: 'render',
     value: function render() {
-      return _react2.default.createElement('div', null);
+      return _react2.default.createElement(
+        'div',
+        null,
+        this.props.emotions.map(this.renderEmotion),
+        _react2.default.createElement(
+          'button',
+          null,
+          'Show Situations'
+        )
+      );
     }
   }]);
 
   return Emotions;
 }(_react2.default.Component);
-
-// let Emotions = ({dispatch}) => (
-//   <button onClick={() => }>SADNESS</button>
-// )
-
-
-Emotions = (0, _reactRedux.connect)()(Emotions);
-
-exports.default = Emotions;
-
-/***/ }),
-/* 103 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _react = __webpack_require__(17);
-
-var _react2 = _interopRequireDefault(_react);
-
-var _reactRedux = __webpack_require__(33);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var renderEmotion = function renderEmotion(emotion) {
-  return _react2.default.createElement(
-    'h1',
-    null,
-    emotion.emotion
-  );
-};
-
-var RenderEmotions = function RenderEmotions(props) {
-  return _react2.default.createElement(
-    'div',
-    null,
-    props.emotions.map(renderEmotion),
-    _react2.default.createElement(
-      'button',
-      null,
-      'Show Situations'
-    )
-  );
-};
 
 function mapStateToProps(state) {
   return {
@@ -11897,9 +11874,10 @@ function mapStateToProps(state) {
   };
 }
 
-exports.default = (0, _reactRedux.connect)(mapStateToProps)(RenderEmotions);
+exports.default = (0, _reactRedux.connect)(mapStateToProps)(Emotions);
 
 /***/ }),
+/* 103 */,
 /* 104 */
 /***/ (function(module, exports, __webpack_require__) {
 

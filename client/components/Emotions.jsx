@@ -1,24 +1,29 @@
 import React from 'react'
 import {connect} from 'react-redux'
-
-import {getEmotions} from '../api/emotions'
+import {fetchEmotions} from '../actions/emotions'
 
 class Emotions extends React.Component {
 
   componentDidMount() {
-    this.props.dispatch(getEmotions())
+    this.props.dispatch(fetchEmotions())
   }
 
+  renderEmotion= (emotion) => <h1>{emotion.emotion}</h1>
+
   render() {
-    return <div></div>
+    return (
+      <div>
+        {this.props.emotions.map(this.renderEmotion)}
+        <button>Show Situations</button>
+      </div>
+    )
   }
 }
 
-// let Emotions = ({dispatch}) => (
-//   <button onClick={() => }>SADNESS</button>
-// )
+function mapStateToProps(state) {
+  return {
+    emotions: state.emotions
+  }
+}
 
-
-Emotions = connect()(Emotions)
-
-export default Emotions
+export default connect(mapStateToProps)(Emotions)

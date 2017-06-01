@@ -8,7 +8,7 @@ const EmotionItem = (props) => {
 
   return(
     <div>
-      <h1><a href='#' onClick={handleclick}>{props.emotion}</a></h1>
+      <button onClick={handleclick}>{props.emotion}</button>
     </div>
   )
 }

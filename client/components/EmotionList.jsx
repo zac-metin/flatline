@@ -10,8 +10,6 @@ class EmotionList extends React.Component {
     this.props.dispatch(fetchEmotions())
   }
 
-  renderEmotion= (emotion) => <h1>{emotion.emotion}</h1>
-
   render() {
     return (
       <div>

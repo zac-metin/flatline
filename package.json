@@ -6,7 +6,8 @@
   "scripts": {
     "start": "nodemon --watch server server/index & webpack --watch",
     "eslint": "eslint src",
-    "knex": "knex"
+    "knex": "knex",
+    "postinstall": "knex migrate:latest"
   },
   "keywords": [
     "react",
@@ -45,6 +46,7 @@
     "body-parser": "^1.17.2",
     "express": "^4.15.3",
     "knex": "^0.13.0",
+    "node-gyp": "^3.6.2",
     "sqlite3": "^3.1.8",
     "superagent": "^2.2.0"
   }

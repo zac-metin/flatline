@@ -3,7 +3,7 @@ import test from 'ava'
 import request from 'supertest'
 import nock from 'nock'
 
-import server from '../../server'
+import server from '../server'
 
 test.cb('GET /api/emotions', t => {
   const scope = nock('http://www.heroku.emogile.com')

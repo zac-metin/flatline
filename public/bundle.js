@@ -11877,8 +11877,11 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 var renderEmotion = function renderEmotion(emotion) {
   return _react2.default.createElement(
-    'h1',
-    null,
+    'button',
+    {
+      onClick: function onClick() {
+        return situation();
+      } },
     emotion.emotion
   );
 };
@@ -11895,6 +11898,15 @@ function mapStateToProps(state) {
   return {
     emotions: state.emotions
   };
+}
+
+function situation() {
+  console.log('potatoes');
+  return _react2.default.createElement(
+    'h1',
+    null,
+    '"Situation here"'
+  );
 }
 
 exports.default = (0, _reactRedux.connect)(mapStateToProps)(RenderEmotions);

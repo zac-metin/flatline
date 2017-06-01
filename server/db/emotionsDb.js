@@ -1,6 +1,6 @@
 
 function getEmotions(knex) {
-   knex('emotions')
+   return knex('emotions')
     .select('*')
 }
 

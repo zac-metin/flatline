@@ -2,10 +2,28 @@ import React from 'react'
 import {connect} from 'react-redux'
 const getEmotions = require('../api/emotions').getEmotions
 
-let Emotions = ({dispatch}) => (
-  <button onClick={() => getEmotions()}>SADNESS</button>
-)
+class LoadEmotions extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      dispatch: props.dispatch
+    }
+  }
 
-// LoadSubreddit = connect()(LoadSubreddit)
+  componentDidMount() {
+    this.state.dispatch(getEmotions())
+  }
 
-export default Emotions
+  render() {
+    return <div></div>
+  }
+}
+
+// let Emotions = ({dispatch}) => (
+//   <button onClick={() => }>SADNESS</button>
+// )
+
+
+LoadEmotions = connect()(LoadEmotions)
+
+export default LoadEmotions

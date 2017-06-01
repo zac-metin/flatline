@@ -11818,24 +11818,19 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var LoadEmotions = function (_React$Component) {
-  _inherits(LoadEmotions, _React$Component);
+var Emotions = function (_React$Component) {
+  _inherits(Emotions, _React$Component);
 
-  function LoadEmotions(props) {
-    _classCallCheck(this, LoadEmotions);
+  function Emotions() {
+    _classCallCheck(this, Emotions);
 
-    var _this = _possibleConstructorReturn(this, (LoadEmotions.__proto__ || Object.getPrototypeOf(LoadEmotions)).call(this, props));
-
-    _this.state = {
-      dispatch: props.dispatch
-    };
-    return _this;
+    return _possibleConstructorReturn(this, (Emotions.__proto__ || Object.getPrototypeOf(Emotions)).apply(this, arguments));
   }
 
-  _createClass(LoadEmotions, [{
+  _createClass(Emotions, [{
     key: 'componentDidMount',
     value: function componentDidMount() {
-      this.state.dispatch((0, _emotions.getEmotions)());
+      this.props.dispatch((0, _emotions.getEmotions)());
     }
   }, {
     key: 'render',
@@ -11844,7 +11839,7 @@ var LoadEmotions = function (_React$Component) {
     }
   }]);
 
-  return LoadEmotions;
+  return Emotions;
 }(_react2.default.Component);
 
 // let Emotions = ({dispatch}) => (
@@ -11852,9 +11847,9 @@ var LoadEmotions = function (_React$Component) {
 // )
 
 
-LoadEmotions = (0, _reactRedux.connect)()(LoadEmotions);
+Emotions = (0, _reactRedux.connect)()(Emotions);
 
-exports.default = LoadEmotions;
+exports.default = Emotions;
 
 /***/ }),
 /* 103 */

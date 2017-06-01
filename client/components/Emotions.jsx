@@ -3,16 +3,10 @@ import {connect} from 'react-redux'
 
 import {getEmotions} from '../api/emotions'
 
-class LoadEmotions extends React.Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      dispatch: props.dispatch
-    }
-  }
+class Emotions extends React.Component {
 
   componentDidMount() {
-    this.state.dispatch(getEmotions())
+    this.props.dispatch(getEmotions())
   }
 
   render() {
@@ -25,6 +19,6 @@ class LoadEmotions extends React.Component {
 // )
 
 
-LoadEmotions = connect()(LoadEmotions)
+Emotions = connect()(Emotions)
 
-export default LoadEmotions
+export default Emotions
